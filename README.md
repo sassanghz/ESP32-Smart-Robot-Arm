@@ -1,13 +1,9 @@
 # Servo Library for ESP32
 
-Specifically for the V3.0.0 of Arduino ESP32. All ADC's have been updated to work correctly with the new release
+Specifically for the V3.0.0 of Arduino ESP32. 
 
 https://github.com/espressif/arduino-esp32/releases
 
-This library attempts to faithfully replicate the semantics of the
-Arduino Servo library (see http://www.arduino.cc/en/Reference/Servo)
-for the ESP32, with two (optional) additions. The two new functions
-expose the ability of the ESP32 PWM timers to vary timer width.
 # Documentation by Doxygen
 
 [ESP32Servo Doxygen](https://madhephaestus.github.io/ESP32Servo/annotated.html)
@@ -66,16 +62,6 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
     
     void detach() - Stops an the attached servo, frees the attached pin, and frees
         its channel for reuse.  
-```
-
-### **New ESP32-specific functions**
- 
-```
-    setTimerWidth(value) - Sets the PWM timer width (must be 16-20) (ESP32 ONLY);
-        as a side effect, the pulse width is recomputed.
-
-    int readTimerWidth() - Gets the PWM timer width (ESP32 ONLY) 
-```
  
 ### Useful Defaults:
 
