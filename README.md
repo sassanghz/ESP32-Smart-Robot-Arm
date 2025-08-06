@@ -1,81 +1,53 @@
-# Servo Library for ESP32
+# 🤖 ESP32-Based Smart Robot Arm
 
-Specifically for the V3.0.0 of Arduino ESP32. 
+A 4-DOF smart robotic arm powered by the ESP32 microcontroller. This project combines mechanical design, wireless control (Bluetooth & Wi-Fi), and IoT technologies for real-time manipulation via a mobile app or browser-based interface.
 
-https://github.com/espressif/arduino-esp32/releases
+---
 
-# Documentation by Doxygen
+## 📸 Demo
 
-[ESP32Servo Doxygen](https://madhephaestus.github.io/ESP32Servo/annotated.html)
+<img src="images/full_setup.jpg" width="400"/> <img src="images/mobile_control.png" width="400"/>
 
-## License
+---
 
-Copyright (c) 2017 John K. Bennett.  All right reserved.
+## 🛠 Features
 
-This library is free software; you can redistribute it and/or
-modify it under the terms of the GNU Lesser General Public
-License as published by the Free Software Foundation; either
-version 2.1 of the License, or (at your option) any later version.
+- 🔧 4 Degrees of Freedom (base, shoulder, elbow, gripper)
+- 📱 Wireless Control via Bluetooth and Wi-Fi
+- 🌐 Web-based GUI for real-time servo control
+- ⚙️ Custom mobile app interface (MIT App Inventor)
+- 📦 Arduino-compatible and open-source
 
-This library is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-Lesser General Public License for more details.
+---
 
-You should have received a copy of the GNU Lesser General Public
-License along with this library; if not, write to the Free Software
-Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
+## 🧰 Hardware Components
 
-## Library Description:
-```
-    Servo - Class for manipulating servo motors connected to ESP32 pins.
-    
-    int attach(pin )  - Attaches the given GPIO pin to the next free channel
-        (channels that have previously been detached are used first), 
-        returns channel number or 0 if failure. All pin numbers are allowed,
-        but only pins 2,4,12-19,21-23,25-27,32-33 are recommended.
-    
-    int attach(pin, min, max  ) - Attaches to a pin setting min and max 
-        values in microseconds; enforced minimum min is 500, enforced max
-        is 2500. Other semantics are the same as attach().
-    
-    void write () - Sets the servo angle in degrees; a value below 500 is
-        treated as a value in degrees (0 to 180). These limit are enforced,
-        i.e., values are constrained as follows:
-            Value                                   Becomes
-            -----                                   -------
-            < 0                                        0
-            0 - 180                                  value (treated as degrees)
-            181 - 499                                 180
-            500 - (min-1)                             min
-            min-max (from attach or default)         value (treated as microseconds)
-            (max+1) - 2500                            max
-    
-    void writeMicroseconds() - Sets the servo pulse width in microseconds.
-        min and max are enforced (see above). 
-        
-    int read() - Gets the last written servo pulse width as an angle between 0 and 180. 
-    
-    int readMicroseconds()   - Gets the last written servo pulse width in microseconds.
-    
-    bool attached() - Returns true if this servo instance is attached to a pin.
-    
-    void detach() - Stops an the attached servo, frees the attached pin, and frees
-        its channel for reuse.  
- 
-### Useful Defaults:
+| Component             | Quantity | Description                            |
+|-----------------------|----------|----------------------------------------|
+| ESP32 Dev Board       | 1        | Keyestudio ESP32                        |
+| SG90 Servo Motors     | 4        | For joint control                      |
+| Acrylic Arm Frame     | 1        | Custom or kit-based                     |
+| Power Supply (USB/5V) | 1        | External or battery powered            |
+| Smartphone            | 1        | For control interface (Bluetooth/Wi-Fi)|
 
-default min pulse width for attach(): 544us
+---
 
-default max pulse width for attach(): 2400us
+## 💻 Software Stack
 
-default timer width 16 (if timer width is not set)
+- **Arduino IDE** (with ESP32 board support)
+- **MIT App Inventor** (Bluetooth control app)
+- **HTML/CSS/JS** (Web interface via ESP32 server)
+- **Libraries:**
+  - `WiFi.h`
+  - `WebServer.h`
+  - `ESP32Servo.h`
 
-default pulse width 1500us (servos are initialized with this value)
+---
 
-MINIMUM pulse with: 500us
+## 🚀 Getting Started
 
-MAXIMUM pulse with: 2500us
+### 1. Clone the Repository
 
-MAXIMUM number of servos: 16 (this is the number of PWM channels in the ESP32)  
-# ESP32_Robot_Arm
+```bash
+git clone https://github.com/your-username/esp32-robot-arm.git
+cd esp32-robot-arm
