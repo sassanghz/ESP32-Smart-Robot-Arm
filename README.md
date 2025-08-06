@@ -4,11 +4,16 @@ A 4-DOF smart robotic arm powered by the ESP32 microcontroller. This project com
 
 ---
 
-## 📸 Demo
+## 📄 Final Report (IEEE Format)
 
-<img src="images/full_setup.jpg" width="400"/> <img src="images/mobile_control.png" width="400"/>
+You can view the full IEEE-formatted project report here:
+
+👉 [ESP32_Smart_Robot_Arm_Report.pdf](./ESP32_Smart_Robot_Arm_Report.pdf)
+
+This document includes system design, experiments, hardware specs, Wi-Fi interface, and future work.
 
 ---
+
 
 ## 🛠 Features
 
